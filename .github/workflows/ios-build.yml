@@ -16,8 +16,9 @@ env:
 
 jobs:
   build-ios:
-    # .NET 10 iOS needs Xcode 26, which requires macOS 15+ (macos-14 cannot run it).
-    runs-on: macos-15
+    # The latest .NET 10 iOS workload requires the newest Xcode (26.6 as of
+    # workload 26.5.10318); macos-15 tops out at Xcode 26.3, macos-26 ships 26.6.
+    runs-on: macos-26
 
     steps:
       - name: Checkout
