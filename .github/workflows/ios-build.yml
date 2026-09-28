@@ -37,8 +37,8 @@ jobs:
         run: dotnet workload install maui-ios
 
       # Code signing is disabled so the build runs without certificates or
-      # provisioning profiles (the csproj also does this when CI=true). The
-      # resulting .app is not installable on a device until it is signed.
+      # provisioning profiles. The resulting .app is not installable on a device
+      # until it is signed.
       # RuntimeIdentifier is set explicitly because the default is a simulator RID.
       - name: Build
         run: >

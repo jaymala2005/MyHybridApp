@@ -1,6 +1,6 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="page">
+<div class="page @(OperatingSystem.IsAndroidVersionAtLeast(35) ? "android-edge-to-edge" : "")">
     <div class="sidebar">
         <NavMenu />
     </div>

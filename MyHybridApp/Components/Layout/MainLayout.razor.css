@@ -4,11 +4,18 @@
     flex-direction: column;
 }
 
+/* Android 15+ enforces edge-to-edge, so the WebView draws under the status bar.
+   Use the reported inset, with 24px as a floor if the WebView reports none. */
+.page.android-edge-to-edge {
+    padding-top: max(24px, env(safe-area-inset-top, 0px));
+}
+
 main {
     flex: 1;
 }
 
 .sidebar {
+    position: relative; /* anchor for the absolutely positioned .navbar-toggler */
     background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
 }
 
