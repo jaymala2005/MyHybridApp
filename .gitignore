@@ -1,0 +1,29 @@
+# Build output
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio / VS Code / Rider
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.userprefs
+*.rsuser
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/packages/
+
+# Signing material (never commit)
+*.keystore
+*.jks
+*.p12
+*.mobileprovision
+
+# OS files
+.DS_Store
+Thumbs.db
