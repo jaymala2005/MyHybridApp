@@ -40,11 +40,13 @@ jobs:
       # provisioning profiles. The resulting .app is not installable on a device
       # until it is signed.
       # RuntimeIdentifier is set explicitly because the default is a simulator RID.
+      # TargetFrameworks is overridden so restore doesn't require the Android workload.
       - name: Build
         run: >
           dotnet build ${{ env.PROJECT_PATH }}
           -f ${{ env.TARGET_FRAMEWORK }}
           -c ${{ env.CONFIGURATION }}
+          -p:TargetFrameworks=${{ env.TARGET_FRAMEWORK }}
           -p:RuntimeIdentifier=ios-arm64
           -p:EnableCodeSigning=false
 
