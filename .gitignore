@@ -6,7 +6,8 @@
 
 # Visual Studio / VS Code / Rider
 .vs/
-.vscode/
+.vscode/*
+!.vscode/tasks.json
 .idea/
 *.user
 *.suo
@@ -23,6 +24,9 @@
 *.jks
 *.p12
 *.mobileprovision
+
+# Simulator screenshots from scripts/run-ios-sim.sh
+ios-sim-screenshot.png
 
 # OS files
 .DS_Store

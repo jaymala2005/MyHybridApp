@@ -1,0 +1,33 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "iOS: Run on Simulator",
+            "type": "shell",
+            "command": "bash scripts/run-ios-sim.sh \"${input:iosDevice}\"",
+            "problemMatcher": "$msCompile",
+            "group": { "kind": "build", "isDefault": true }
+        },
+        {
+            "label": "iOS: List Simulators",
+            "type": "shell",
+            "command": "xcrun simctl list devices available | grep -E 'iPhone|iPad|-- iOS'",
+            "problemMatcher": []
+        },
+        {
+            "label": "iOS: Screenshot",
+            "type": "shell",
+            "command": "xcrun simctl io booted screenshot ios-sim-screenshot.png",
+            "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        {
+            "id": "iosDevice",
+            "type": "pickString",
+            "description": "iOS Simulator",
+            "options": ["iPhone 17 Pro", "iPhone 17", "iPhone 17 Pro Max", "iPhone Air", "iPhone 17e"],
+            "default": "iPhone 17 Pro"
+        }
+    ]
+}

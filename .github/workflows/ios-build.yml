@@ -34,8 +34,10 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
+      # Pinned: workload set 10.0.401 ships iOS 26.5.10318, which needs Xcode 26.6.
+      # Newer sets (10.0.401.1 -> iOS 27.0) require Xcode 27, which macos-26 lacks.
       - name: Install MAUI iOS workload
-        run: dotnet workload install maui-ios
+        run: dotnet workload install maui-ios --version 10.0.401
 
       # Code signing is disabled so the build runs without certificates or
       # provisioning profiles. The resulting .app is not installable on a device
