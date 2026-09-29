@@ -7,7 +7,10 @@ export DOTNET_ROOT="$HOME/.dotnet" PATH="$HOME/.dotnet:$PATH" DOTNET_CLI_TELEMET
 
 DEVICE_NAME="${1:-iPhone 17 Pro}"
 BUNDLE_ID="com.companyname.myhybridapp"
-ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+# Physical path (-P): on MacinCloud $HOME is a symlink, and mixing the symlinked and
+# real paths makes Razor compute wrong namespaces (CS0234 in _Imports.razor).
+ROOT="$(cd "$(dirname "$0")/.." && pwd -P)"
+cd "$ROOT"
 RID="iossimulator-$(uname -m | sed 's/x86_64/x64/')"
 APP="$ROOT/MyHybridApp/bin/Debug/net10.0-ios/$RID/MyHybridApp.app"
 
